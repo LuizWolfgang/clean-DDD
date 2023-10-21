@@ -1,0 +1,36 @@
+# DDD - (Domain-driven Desing)
+
+- Não está muito relacionado com código,
+- é uma metodologia para desing de software, 
+- converter um problema real em software,
+- traduzir para uma linguagem de domínio,
+- Desing de software !== de arquitetura de software
+- Desconectado de camadas externas
+
+## Domínio: A área de entendimento
+
+- Domain Experts
+    - sao as pessoas que entendem a fundo as problematicas que vamos resolver com nosso software
+
+- Linguagem ubíqua
+    - manter uma comunicação clara e padronizada com todos os membros
+
+- Desing 
+    - como a gente vai desenhar a aplicação
+
+--------------------------------------------------------------------------------------------------------------------
+
+- Entities
+    - Traduzem tudo o que vai ser mantido na aplicação
+    - Entidades são diferentes das tabelas do banco de dados
+
+    --------------------------------------------------------------------------------------------------------------------
+    CLEAN Architecture = como vamos implementar o código
+        -Principal ponto: desacoplamento
+
+        ( solid - inversão de dependencia - um parte do nosso codigo
+          nao dependa diretamente da implementacao de uma outra camada do nosso codigo
+          e sim de uma abstração
+        )
+
+        subDominios -> ex: Domain - forum (pastas)
