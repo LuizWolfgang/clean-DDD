@@ -1,4 +1,5 @@
-import { QuestionsRepository } from "../repositories/questions-repository";
+import { QuestionsRepository } from '../repositories/questions-repository'
+
 interface DeleteQuestionUseCaseRequest {
   authorId: string
   questionId: string
@@ -15,7 +16,6 @@ export class DeleteQuestionUseCase {
   }: DeleteQuestionUseCaseRequest): Promise<DeleteQuestionUseCaseResponse> {
     const question = await this.questionsRepository.findById(questionId)
 
-    console.log('AAA', question)
     if (!question) {
       throw new Error('Question not found.')
     }
