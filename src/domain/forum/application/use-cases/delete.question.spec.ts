@@ -1,11 +1,9 @@
-import { InMemoryQuestionsRepository } from "../../../../../test/repositories/in-memory-questions-repository";
+import { makeQuestion } from "../../../../../test/factories/make-question"
+import { InMemoryQuestionsRepository } from "../../../../../test/repositories/in-memory-questions-repository"
+import { UniqueEntityID } from "../../../../core/entities/unique-entity-id"
+import { DeleteQuestionUseCase } from "./delete-question"
+import { describe, beforeEach, it, expect } from 'vitest';
 
-import { describe, beforeEach, it, expect } from "vitest";
-import { GetQuestionBySlugUseCase } from "./get-question-by-slug";
-import { makeQuestion } from "../../../../../test/factories/make-question";
-import { Slug } from "../../enterprise/entities/value-objects/slug";
-import { DeleteQuestionUseCase } from "./delete-question";
-import { UniqueEntityID } from "../../../../core/entities/unique-entity-id";
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let sut: DeleteQuestionUseCase
 
@@ -23,9 +21,8 @@ describe('Delete Question', () => {
       new UniqueEntityID('question-1'),
     )
 
-    const oi = await inMemoryQuestionsRepository.create(newQuestion)
+    await inMemoryQuestionsRepository.create(newQuestion)
 
-    console.log('BBBBB', oi)
     await sut.execute({
       questionId: 'question-1',
       authorId: 'author-1',
