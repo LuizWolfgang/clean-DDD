@@ -1,15 +1,19 @@
 
+import { Either, right } from '../../../../either';
 import { Answer } from '../../enterprise/entities/answer';
 import { AnswersRepository } from '../repositories/answers-repository'
 
 interface FetchQuestionAnswersUseCaseRequest {
-  questionId: string;
+  questionId: string
   page: number
 }
 
-interface FetchQuestionAnswersUseCaseResponse {
-  answers: Answer[];
-}
+type FetchQuestionAnswersUseCaseResponse = Either<
+  null,
+  {
+    answers: Answer[]
+  }
+>
 
 export class FetchQuestionAnswersUseCase {
   constructor(private answersRepository: AnswersRepository) {}
@@ -19,11 +23,12 @@ export class FetchQuestionAnswersUseCase {
     page,
   }: FetchQuestionAnswersUseCaseRequest): Promise<FetchQuestionAnswersUseCaseResponse> {
     const answers = await this.answersRepository.findManyByQuestionId(
-        questionId,
-        { page })
+      questionId,
+      { page },
+    )
 
-    return {
-        answers,
-    }
+    return right({
+      answers,
+    })
   }
 }

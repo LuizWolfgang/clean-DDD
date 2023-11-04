@@ -4,7 +4,6 @@ import { InMemoryQuestionCommentsRepository } from '../../../../../test/reposito
 import { InMemoryQuestionsRepository } from '../../../../../test/repositories/in-memory-questions-repository'
 import { CommentOnQuestionUseCase } from './comment-on-question'
 
-
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryQuestionCommentsRepository: InMemoryQuestionCommentsRepository
 let sut: CommentOnQuestionUseCase
