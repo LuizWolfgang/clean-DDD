@@ -25,7 +25,6 @@ export class InMemoryQuestionCommentsRepository
     return questionComments
   }
 
-
   async create(questionComment: QuestionComment) {
     this.items.push(questionComment)
   }
